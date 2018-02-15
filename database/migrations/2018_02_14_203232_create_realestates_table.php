@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRealestateTable extends Migration
+class CreateRealestatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateRealestateTable extends Migration
      */
     public function up()
     {
-        Schema::create('realestate', function (Blueprint $table) {
+        Schema::create('realestates', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('county');
             $table->string('category');
-            $table->integer('price');
-            $table->string('sixe');
+            $table->string('price');
+            $table->string('size');
             $table->string('bed');
+            $table->string('bath');
+            $table->binary('image');
             $table->timestamps();
         });
     }
@@ -32,6 +34,6 @@ class CreateRealestateTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('realestate');
+        Schema::dropIfExists('realestates');
     }
 }
