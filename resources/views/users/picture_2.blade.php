@@ -36,12 +36,12 @@
       					 Bath : {{$d->price}}
      				   </span>
 					</div>
-					
+				
 					
 			</div>
 			</div>
 	@endforeach	
-		
+			<center><a href="indexs/create" class="btn btn-success">insert data</a></center>
 	</div>
 </div>
  </body>

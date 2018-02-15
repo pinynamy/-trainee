@@ -45,11 +45,7 @@ class RealestateController extends Controller
      */
     public function store(Request $request)
     {
-        $data = Realestate::all();
-        $phuket = Realestate::where('county',"Phuket")->get();
-        $pattaya = Realestate::where('county',"Pattaya")->get();
-        $countpk = count($phuket);
-        $countpy = count($pattaya);
+
         if($request->exists('btn-upload')){
             $name = $request->get('name');
             $county = $request->get('county');
@@ -76,9 +72,7 @@ class RealestateController extends Controller
             echo 'Uploaded';
  
         }
-        return view('users.indexs')->with('data',$data)
-                                   ->with('countpk',$countpk)
-                                   ->with('countpy',$countpy);
+        return redirect('indexs');
     }
 
     /**
@@ -113,14 +107,22 @@ class RealestateController extends Controller
      */
     public function update(Request $request, $realestates)
     {
-        $data = Realestate::findOrFail($realestates);  
+        $data = $request->all();
+        //$realestate = Realestate::findOrFail($realestates);
         $file = $request->file('uploader');
-            $path = 'images/uploads';
-            $filename = $file->getClientOriginalName();
-            $file->move('images/uploads',$file->getClientOriginalName());
-              
-        $data->update($request->all());    
-        return redirect('services');
+        $filename = $file->getClientOriginalName();
+        $file->move('images/uploads',$file->getClientOriginalName());
+        $realestate_result = Realestate::find($realestates)->update([
+            "name"      => $data["name"],
+            "county"    => $data["county"],
+            "category"  => $data["category"],
+            "size"      => $data["size"],
+            "price"     => $data["price"],
+            "bed"       => $data["bed"],
+            "bath"      => $data["bath"],
+            "image"     => $filename
+        ]);
+        return redirect('indexs');
     }
 
     /**

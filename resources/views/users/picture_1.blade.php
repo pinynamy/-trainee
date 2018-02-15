@@ -64,7 +64,7 @@
 					<div class="cours4 text-center">
 						
 						<span class="label label-warning">
-      					 Condos & Vlilas:
+      					 Condos & Vlilas: {{$countbk}}
      				   </span>
 					
 					</div>

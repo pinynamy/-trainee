@@ -28,12 +28,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-              <a class="navbar-brand" href="/home" target="_blank">Trainee</a>
+              <a class="navbar-brand" href="indexs" target="_blank">Trainee</a>
             </div>
             
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/home_">Home</a></li>
+                    <li class="active"><a href="indexs">Home</a></li>
                     <li><a href="#">Link</a></li>
                     <li class="dropdown hoves"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<b class="caret"></b></a>
                         <ul class="dropdown-menu">
